@@ -39,7 +39,7 @@ export default function Header() {
             <div className='flex items-center space-x-4 text-sm font-light' >
               <SearchIcon className="hidden h-6 w-6 sm:inline " />
               <BellIcon className="h-6 w-6 " />
-              <Link href="/account">
+              <Link href="/Account">
                 <img
                   src="https://rb.gy/g1pwyx"
                   alt=""
