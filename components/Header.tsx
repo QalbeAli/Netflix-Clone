@@ -2,10 +2,15 @@ import {BellIcon, SearchIcon} from '@heroicons/react/solid'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import useAuth from '../hooks/UseAuth'
+import { ConnectButton, useNotification } from 'web3uikit'
+import { useMoralis } from 'react-moralis'
+import { type } from 'os'
+
 export default function Header() {
 
   const[isScrolled, setIsScrolled] = useState(false)
   const { logout } = useAuth()
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +26,7 @@ export default function Header() {
 
   
         return (
-          <header className={`${isScrolled && 'bg-[#141414]'}`} >
+          <header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
               <img
                 src="https://rb.gy/ulxxee"
@@ -38,17 +43,18 @@ export default function Header() {
                 <li className="headerlink">My List</li>
               </ul>
             </div>
-            <div className='flex items-center space-x-4 text-sm font-light' >
+            <div className="flex items-center space-x-4 text-sm font-light">
               <SearchIcon className="hidden h-6 w-6 sm:inline " />
               <BellIcon className="h-6 w-6 " />
-              
-                <img
+
+              <img
                 onClick={logout}
-                  src="https://rb.gy/g1pwyx"
-                  alt=""
-                  className="cursor-pointer rounded"
-                />
-            
+                src="https://rb.gy/g1pwyx"
+                alt=""
+                className="cursor-pointer rounded"
+              />
+
+              <ConnectButton />
             </div>
           </header>
         )
